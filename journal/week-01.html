@@ -32,7 +32,7 @@
     <!-- EDIT THIS: a title that says what you found, not what you did.
          "The blocks that were built after the creek was filled" beats
          "Week 1 journal entry". -->
-    <h1>Give this entry a real title</h1>
+    <h1>Madrid's urban temperature is higher than rural's</h1>
 
     <!-- ============================================================
          The six parts. Every entry in this course has all six.
@@ -42,27 +42,20 @@
 
     <h2>The question</h2>
     <p>
-      One sentence. It must be answerable, and it must have a "where" in it.
-      This week, that is the sentence you wrote in class:
-      at [site], [thing A] and [thing B] go together, because of [mechanism].
+      In Madrid, densely populated historic blocks and lower summer surface temperatures go together, because narrow street canyons provide mutual building shading while blocking afternoon convective heat, and I could check it with the urban-epoch layer against satellite summer surface heat.
     </p>
 
     <h2>The data</h2>
     <p>
-      Which layers you used in the Site Scanner, what years they are from, and
-      who made them. Then the part people skip: what is missing from them, and
-      what each layer is standing in for.
+      This analysis uses the "Summer Surface Heat" and "Population Density" layers from Site Scanner, both updated in 2026 by Google Earth Engine Apps. However, these datasets lack detailed building age histories and elevation profiles.
     </p>
     <p>
-      Write the proxy sentence here, once per indicator:
-      <em>I am using X to stand for Y, and it might fail because Z.</em>
+      <em>I am using Population Density to stand for urban built-up intensity, and it might fail because high population density alone does not necessary represents the administrative division. I am using Summer Surface Heat to stand for human thermal comfort, and it might fail because satellite-derived surface radiation differs from actual ground-level air temperature.</em>
     </p>
-
+     
     <h2>The method</h2>
     <p>
-      What you actually did, in enough detail that someone else could repeat
-      it. Which base layer, which overlay, roughly what zoom, and where you set
-      the opacity. If you chose a threshold or a year, say why you chose it.
+     I selected the 2026 Summer Surface Heat layer and overlaid the 2026 Population Density layer. I set the view to a city-wide zoom level across Madrid to evaluate how spatial surface heat aligns with concentrated human settlement.
     </p>
 
     <!-- ============================================================
@@ -83,31 +76,22 @@
               title="Describe your map" loading="lazy"></iframe>
       -->
       <figcaption>
-        A caption that says what to look at. Not "Figure 1" — tell the reader
-        where their eye should go, and what it means.
+        Look at the central green cluster representing high population density; notice how it directly overlaps with the lower surface temperature zones compared to the warmer surrounding countryside.
       </figcaption>
     </figure>
 
     <h2>What I found</h2>
     <p>
-      Plain language. What does the image actually support? Use at least three
-      of the ten words — pattern, distribution, density, clustering, proximity,
-      adjacency, connectivity, relationship, change, diffusion — and use them
-      correctly.
+      The image supports a clear spatial relationship in Madrid where areas of high population density in the historic core exhibit lower summer surface heat than adjacent rural zones. The spatial distribution of heat shows that cooler thermal signatures are tightly tied to the clustering of pre-1900 dense urban blocks rather than peripheral mid-century developments.
     </p>
 
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        The honest part. What the image cannot support, what you had to assume,
-        and what would change your mind. Name the extent you chose, and say how
-        the answer would differ if you had zoomed out one step.
-      </p>
+        This map does not account for micro-topography or elevation differences, nor does it capture the exact historical sequence of building construction across districts. I assumed that daytime building shading, narrow street canyons, and traditional construction materials drive this thermal reduction. If I zoomed out one step to the regional scale, the urban core's cool effect will differ base on other factors such as air- conditioner distribution.
       <p>
-        <strong>AI use:</strong> AI-assisted for [what], using [which tool].
-        I verified [how]. If you did not use AI, write "No AI tools were used
-        for this entry."
-      </p>
+        <strong>AI use:</strong>I-assisted for grammar refinement. I verified all spatial statements and logic manually.
+     </p>
     </div>
 
     <a class="back" href="../index.html#journal">← Back to all entries</a>
