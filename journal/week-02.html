@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 01 · Xizhou Huang</title>
+
+<!-- Note the ../ — this page is inside the journal folder, so it has to
+     look one level up to find the stylesheet. -->
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Your Name</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../index.html#journal">Journal</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="entry">
+  <div class="wrap wrap-narrow">
+
+    <p class="kicker">Week 01 · September 2026</p>
+
+    <!-- EDIT THIS: a title that says what you found, not what you did.
+         "The blocks that were built after the creek was filled" beats
+         "Week 1 journal entry". -->
+    <h1>Madrid's Old Town Cooler Than Newer Districts</h1>
+
+    <!-- ============================================================
+         The six parts. Every entry in this course has all six.
+         Do not delete a heading — if a section is thin, that is
+         information too.
+         ============================================================ -->
+
+    <h2>The question</h2>
+    <p>
+      In Madrid, densely populated historic blocks and lower summer surface temperatures go together, because narrow street canyons provide mutual building shading and building materials used in the past were more effective at mitigating the urban heat island effect. I could check it with the urban-epoch layer against satellite summer surface heat.
+    </p>
+
+    <h2>The data</h2>
+    <p>
+      This analysis uses the "Summer Surface Heat" and "Population Density" layers from Site Scanner, both updated in 2026 by Google Earth Engine Apps. However, these datasets lack detailed building age histories and elevation profiles.
+    </p>
+    <p>
+      <em>I am using Population Density to stand for urban built-up intensity, and it might fail because high population density alone does not necessary represents the administrative division. I am also using Summer Surface Heat to stand for human thermal comfort, and it might fail because satellite-derived surface radiation differs from actual ground-level air temperature.</em>
+    </p>
+     
+    <h2>The method</h2>
+    <p>
+     I selected the 2026 Summer Surface Heat layer and overlaid the 2026 Population Density layer. I set the view to a city-wide zoom level across Madrid to evaluate how spatial surface heat aligns with concentrated human settlement in the city.
+    </p>
+
+    <!-- ============================================================
+         YOUR EVIDENCE
+
+         WEEK 1: a screenshot from the Site Scanner. Upload it into this
+         journal folder (Add file → Upload files) and change the src
+         below to your filename, for example src="scanner-01.png".
+
+         FROM WEEK 2, once ArcGIS Online is live: publish your web map,
+         choose Share → Embed, delete the <img> line, remove the <!-- and
+         --> 
+    <figure>
+    <iframe src=<iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 1 · Climate normals · Xizhou Huang. " src="https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=f1c27fbb50cd43f1b2507780ac4ce6d8&theme=light&heading=true&legend=true&share=true&scroll=false&basemaps=true&center=-3.609818091913109,40.362650511712765&scale=288895.277144" ></iframe>
+      </figcaption>
+    </figure>
+
+    <h2>What I found</h2>
+    <p>
+      The image supports a clear spatial relationship in Madrid where areas of high population density in the historic core area exhibit lower summer surface heat than adjacent rural zones. The spatial distribution of heat shows that cooler thermal signatures are tightly tied to the clustering of older central urban blocks rather than peripheral new developments.
+    </p>
+
+    <h2>What this does not show</h2>
+    <div class="limits">
+      <p>
+        This map does not capture the exact historical sequence of building construction across districts. I assumed that the construction completion time of a building is directly related to the materials used, as well as its height and form, which eventually affect its heat transfer capability. If I zoomed out one step to the regional scale, the urban core's cool effect will differ base on other factors such as air-conditioner distribution.
+      <p>
+        <strong>AI use:</strong> AI-assisted for grammar refinement. I verified all spatial statements and logic manually.
+     </p>
+    </div>
+
+    <a class="back" href="../index.html#journal">← Back to all entries</a>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap wrap-narrow">
+    <p>Xizhou Huang · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
