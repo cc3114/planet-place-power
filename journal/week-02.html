@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Week 01 · Xizhou Huang</title>
+<title>Week 02 · Xizhou Huang</title>
 
 <!-- Note the ../ — this page is inside the journal folder, so it has to
      look one level up to find the stylesheet. -->
@@ -27,35 +27,36 @@
 <article class="entry">
   <div class="wrap wrap-narrow">
 
-    <p class="kicker">Week 01 · September 2026</p>
+    <p class="kicker">Week 02 · September 2026</p>
 
     <!-- EDIT THIS: a title that says what you found, not what you did.
          "The blocks that were built after the creek was filled" beats
          "Week 1 journal entry". -->
-    <h1>Madrid's Old Town Cooler Than Newer Districts</h1>
+    <h1>Madrid's Temperature And Precipitaiton</h1>
 
     <!-- ============================================================
          The six parts. Every entry in this course has all six.
          Do not delete a heading — if a section is thin, that is
+       
          information too.
          ============================================================ -->
 
     <h2>The question</h2>
     <p>
-      In Madrid, densely populated historic blocks and lower summer surface temperatures go together, because narrow street canyons provide mutual building shading and building materials used in the past were more effective at mitigating the urban heat island effect. I could check it with the urban-epoch layer against satellite summer surface heat.
+       How does the temperature in the Madrid downtown area compare with the Madrid countryside?
     </p>
 
     <h2>The data</h2>
     <p>
-      This analysis uses the "Summer Surface Heat" and "Population Density" layers from Site Scanner, both updated in 2026 by Google Earth Engine Apps. However, these datasets lack detailed building age histories and elevation profiles.
+      Esri Earth Observations. (2026, March 12). World Historical Climate - Monthly Averages for GHCN-D Stations for 1981 - 2010 [Feature layer]. ArcGIS Living Atlas. Retrieved September 10, 2026, from NOAA NCEI GHCN-Daily v3.24 (Menne et al., 2012).https://www.arcgis.com/home/item.html?id=ed59d3b4a8c44100914458dd722f054f#overview
     </p>
     <p>
-      <em>I am using Population Density to stand for urban built-up intensity, and it might fail because high population density alone does not necessary represents the administrative division. I am also using Summer Surface Heat to stand for human thermal comfort, and it might fail because satellite-derived surface radiation differs from actual ground-level air temperature.</em>
+      <em>The description‘s station count does not match the table’s.</em>
     </p>
      
     <h2>The method</h2>
     <p>
-     I selected the 2026 Summer Surface Heat layer and overlaid the 2026 Population Density layer. I set the view to a city-wide zoom level across Madrid to evaluate how spatial surface heat aligns with concentrated human settlement in the city.
+     I used the Filter feature in ArcGIS to select the data. First, I set the condition to “All of the following are true”, and set the field to GHCN-D ID so as to search by the weather stations’ country and ID. Then I set the operator to “starts with”, and searched by the country’s abbreviated letters "SP". After locating the target country, I zoomed in and found the specific city Madrid, on which I conducted my research. By pointing at the colored station point, I got access to the station ID SPE00120287. By doing so, I set another condition connected with the first one by AND: field set to GHCN-D ID, operator "is", and value "SPE00120287". With the layer selected, I clicked "Configure charts" and added two Bar charts to the map. For the first chart, I set Category to Principal Station Name, set Aggregation to Mean, and added all twelve [Month] Avg. Temp C fields, January through December, in order. Similarly, for the second chart, I selected all twelve [Month] Mean Prcp mm fields.
     </p>
 
     <!-- ============================================================
@@ -84,13 +85,16 @@
 
     <h2>What I found</h2>
     <p>
-      The image supports a clear spatial relationship in Madrid where areas of high population density in the historic core area exhibit lower summer surface heat than adjacent rural zones. The spatial distribution of heat shows that cooler thermal signatures are tightly tied to the clustering of older central urban blocks rather than peripheral new developments.
+      The region near the equator is the warmest place in the world, and the dry belts are located around 30° in both hemispheres, where the most famous deserts such as the Sahara, Arabian, and Australian deserts are situated. This occurs because the sinking air at 30°, which originates from the equator, is dry air, causing both the atmosphere and the local environment to become hot and dry. Conversely, the wet belts are located around the equator and in subpolar regions. Around the equator, warm ocean temperatures induce heavy rainfall; around 50°–60°, warm, moist westerlies from the subtropics meet cold, dry easterlies from the poles, resulting in a persistent rainy season.
+Madrid consistently experiences a more extreme temperature range than coastal Spanish cities like Barcelona, which I attribute to its high elevation and surrounding mountain barriers that block moderating marine influences.
+Globally, most climate regions feature a summer-rainfall pattern where peak precipitation coincides with high temperatures. However, Madrid's Mediterranean climate is a distinct exception, characterized by hot, dry summers and mild, wet winters. Situated in the Mediterranean zone, Madrid features a unique climate driven primarily by the seasonal north-south migration of the subtropical high-pressure belt and the westerlies.
+The weather stations available in Madrid are unevenly distributed. Because I aim to compare the diverse weather conditions across different parts of the city, this sparse distribution may not be precise enough to draw a definitive conclusion.
     </p>
 
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        This map does not capture the exact historical sequence of building construction across districts. I assumed that the construction completion time of a building is directly related to the materials used, as well as its height and form, which eventually affect its heat transfer capability. If I zoomed out one step to the regional scale, the urban core's cool effect will differ base on other factors such as air-conditioner distribution.
+         Regarding limitations, the greenhouse effect is rapidly altering global weather conditions. Since the project's dataset is based on the 1981–2010 baseline window, it may be somewhat outdated, ultimately leading to results that are less representative of current conditions.
       <p>
         <strong>AI use:</strong> AI-assisted for grammar refinement. I verified all spatial statements and logic manually.
      </p>
