@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 07 · Xizhou Huang</title>
+
+<!-- Note the ../ — this page is inside the journal folder, so it has to
+     look one level up to find the stylesheet. -->
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Xizhou Huang</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../index.html#journal">Journal</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="entry">
+  <div class="wrap wrap-narrow">
+
+    <p class="kicker">Week 07 · October 2026</p>
+
+    <!-- EDIT THIS: a title that says what you found, not what you did.
+         "The blocks that were built after the creek was filled" beats
+         "Week 1 journal entry". -->
+    <h1>Land cover, then and now</h1>
+
+    <!-- ============================================================
+         The six parts. Every entry in this course has all six.
+         Do not delete a heading — if a section is thin, that is
+       
+         information too.
+         ============================================================ -->
+
+    <h2>The question</h2>
+    <p>
+    This journal addresses questions rooted in scale, distribution, and place: To what extent do Spain’s physical‑geographic conditions explain the country’s real‑world export profile? How does the choice between goods‑only trade data and combined goods‑and‑services data change our understanding of Spain’s most important exports? 
+    </p>
+
+    <h2>The data</h2>
+    <p>
+     For this exercise I used two data sources: trade statistics from The Atlas of Economic Complexity (The Growth Lab at Harvard University) and country boundary polygons from Natural Earth.
+All trade figures are for 2024, using HS92 classification and measured in current US dollars. I exported two CSV tables from the Atlas website. One table is destination‑focused and contains goods‑only export data, which I imported into ArcGIS Online for the table join. Its fields are country, exports_usd, and Share. Total goods exports recorded in this dataset equal $369.9 billion USD. A second product‑focused export table includes goods plus services, with an overall combined total of $589.8 billion USD. The goods subtotal within this second table matches the total of the goods‑only destination table, confirming data consistency.
+The Atlas provides a prose‑form reuse statement, with no formal CC‑type licence. The original permission text: “The Atlas of Economic Complexity is a freely available public resource… We encourage reuse and adaptation, provided that users cite the Atlas and underlying data sources appropriately.” Underlying raw trade data originates from UN Comtrade.
+My spatial boundary layer is Natural Earth 1:110 m Admin‑0 Countries, version 5.1.1. Its licence statement reads: “Public domain. No permission needed, no attribution required, no restriction on commercial use.”
+    </p>
+    <p>
+      <em></em>
+    </p>
+     
+    <h2>The method</h2>
+    <p>
+   I created a Joined view layer on the Natural Earth polygon target using a left join so unmatched polygons stay visible for audit. I made my join fields on ISO_A3 from the boundary target layer and iso3 from my trade CSV table. I found 14 polygon failed to receive a matching trade record within Natural Earth's 177 polygons; in the reverse direction, a number of small island and micro‑state table rows have no corresponding polygon at 1:110 m scale and are generalised away. I also built a point CSV of three sites and added it via "Latitude and longitude", consuming no ArcGIS credits.
+    </p>
+
+    <!-- ============================================================
+         YOUR EVIDENCE
+
+         WEEK 1: a screenshot from the Site Scanner. Upload it into this
+         journal folder (Add file → Upload files) and change the src
+         below to your filename, for example src="scanner-01.png".
+
+         FROM WEEK 2, once ArcGIS Online is live: publish your web map,
+         choose Share → Embed, delete the <img> line, remove the <!-- and
+         --> 
+      
+    <figure>
+   <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 6 · From table to map · Xizhou Huang" src="https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=7ff02eec27824ef6bdeb3b7098b1484e&theme=light&scroll=false&center=-3.748007832031361,39.505575364054025&scale=9244648.868618" ></iframe>
+    </figure>
+      <figcaption>
+       Choropleth map showing export values in US dollars for 2024. Country boundary data: Natural Earth (1:110m Admin 0 countries, public domain). Export trade data: The Growth Lab at Harvard University, Atlas of Economic Complexity. The two datasets were joined on three‑letter ISO country codes.
+      </figcaption>
+    </figure>
+
+  
+
+    <h2>What I found</h2>
+    <p>
+   One connection that holds: the single largest Spanish export of all is Travel & tourism.It traces directly to a physical endowment I named in my physical‑DNA sentence, which is Spain's warm Mediterranean climate and coastline. 
+A second connection that holds, within goods: the largest physical‑goods export is Cars, matching the automotive industrial capacity concentrated around Barcelona‑Martorell and Valencia.
+One connection that breaks: Travel & tourism is completely absent from my goods‑only choropleth map. The destination view I joined excludes all services, so the country's biggest export by value cannot appear on the map at all. Spain also builds cars from imported energy and components while domestic mineral reserves are scarce, so the map's automotive values rest on imported inputs, not native underground endowments.
+I overestimated the fraction of Spanish land occupied by export‑oriented production. I also did not initially expect a service to be the largest export.
+    </p>
+
+    <h2>What this does not show</h2>
+    <div class="limits">
+      <p>
+     I use national‑level goods‑export values to represent real export‑related economic activity in Spain, and this mapping can mislead because choropleth shading assigns the entire national goods total to every square kilometre of territory while actual production and shipping are confined to a few industrial zones and ports. And the goods‑only view excludes services such as Travel & tourism, which is Spain's single largest export.
+      <p>
+        <strong>AI use:</strong> AI-assisted for grammar refinement. I verified all spatial statements and logic manually.
+     </p>
+    </div>
+
+    <a class="back" href="../index.html#journal">← Back to all entries</a>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap wrap-narrow">
+    <p>Xizhou Huang · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
