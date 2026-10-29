@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 08 · Xizhou Huang</title>
+
+<!-- Note the ../ — this page is inside the journal folder, so it has to
+     look one level up to find the stylesheet. -->
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Xizhou Huang</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../index.html#journal">Journal</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="entry">
+  <div class="wrap wrap-narrow">
+
+    <p class="kicker">Week 08 · October 2026</p>
+
+    <!-- EDIT THIS: a title that says what you found, not what you did.
+         "The blocks that were built after the creek was filled" beats
+         "Week 1 journal entry". -->
+    <h1>Land cover, then and now</h1>
+
+    <!-- ============================================================
+         The six parts. Every entry in this course has all six.
+         Do not delete a heading — if a section is thin, that is
+       
+         information too.
+         ============================================================ -->
+
+    <h2>The question</h2>
+    <p>
+    This investigation explores invisible digital and energy infrastructure across Madrid, Spain, examining how networked infrastructure appears on different spatial datasets at urban scale, and how place shapes what geospatial databases can capture. I compare visible electrical infrastructure and hidden telecom and data centre infrastructure to test the limits of crowdsourced and commercial geospatial records.
+    </p>
+
+    <h2>The data</h2>
+    <p>
+Source 1: OpenStreetMap (queried via Overpass Turbo API) 
+Date accessed: 2026-10-29
+Maker: OpenStreetMap volunteer contributors, OpenStreetMap Foundation 
+What it lists: Overpass query returns electricity transmission towers, substations, plus a small number of mapped telecom facilities and buildings tagged building=data_center. Underground or fenced-off telecom infrastructure is largely absent. 
+Contains information from OpenStreetMap, which is made available here under the Open Database License (ODbL).
+It can be republished on this public journal page as Produced Work with required attribution.
+Source 2: TeleGeography Submarine Cable Map 
+Date accessed: 2026-10-29
+Maker: TeleGeography 
+What it lists: Madrid has no on-site submarine cable landing stations. Iberian subsea cables land on Spain’s Atlantic/Mediterranean coast; Madrid connects only via long-distance terrestrial fibre backhaul. 
+Screenshot reuse permitted under CC BY‑SA 4.0; underlying raw database is subscriber-only and cannot be republished. Interactive embedding is prohibited. Licence: CC BY‑SA 4.0 for screenshots; raw underlying data restricted to paying subscribers. 
+It can be republished on this public journal page for credited screenshots; but not for raw source data and embedded interactive map.
+Source3: Data Center Map 
+Date accessed: 2026-10-29
+Maker: Data Center Map ApS, Denmark 
+What it lists: 84 data centres recorded for the Madrid region, including major operators such as DATA4, Digital Realty, Nabiax and Equinix. 
+Manual human browsing and reading on the website is permitted. Scraping, copying, redistribution, or publication of map/data extracts are forbidden without prior written permission from Data Center Map ApS. 
+May it be republished on this public journal page? No. Only written observations read on screen are cited; no map or raw data is reproduced.
+    </p>
+    <p>
+      <em></em>
+    </p>
+     
+    <h2>The method</h2>
+    <p>
+I used Overpass Turbo, with responding server: gall.openstreetmap.de. 
+
+Bounding box: the administrative extent of Madrid, Spain. 
+
+Overpass query:
+[out:json][timeout:60];
+nwr["telecom"]({{bbox}});
+out center;
+
+[out:json][timeout:120];
+(
+  nwr["telecom"]({{bbox}});
+  nwr["building"="data_center"]({{bbox}});
+);
+out center;
+
+The predicate filters for objects tagged telecom, power=tower, power=substation, and building=data_center within the bounding box of Madrid. I exported the power infrastructure results as GeoJSON, then imported the GeoJSON into ArcGIS Online. I manually added notes about terrestrial fibre interconnection from TeleGeography, as raw cable data could not be downloaded. I created a map visualisation and added required attribution and copyright statements in the map caption.
+
+    </p>
+
+    <!-- ============================================================
+         YOUR EVIDENCE
+
+         WEEK 1: a screenshot from the Site Scanner. Upload it into this
+         journal folder (Add file → Upload files) and change the src
+         below to your filename, for example src="scanner-01.png".
+
+         FROM WEEK 2, once ArcGIS Online is live: publish your web map,
+         choose Share → Embed, delete the <img> line, remove the <!-- and
+         --> 
+      
+    <figure>
+        <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 7 · Climate normals · Xizhou Huang" src="https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=baa3985f751f4032b4e8a64f0961fbd8&theme=light&scroll=false&center=-3.933709338853078,40.38534511806087&scale=1155581.108577" ></iframe>
+    </figure>
+      <figcaption>
+       Electricity transmission infrastructure (power=substation, power=tower) within the Madrid study extent, retrieved from OpenStreetMap via Overpass Turbo on 2026-10-29. Contains information from OpenStreetMap, which is made available here under the Open Database License (ODbL).
+      </figcaption>
+    </figure>
+
+  
+
+    <h2>What I found</h2>
+    <p>
+  The OSM dataset captures Madrid’s overhead electrical infrastructure very well, as transmission towers and substations are visible from aerial imagery and public roads. However, the same crowdsourced database underrepresents telecom infrastructure. Many fibre routes are invisible to volunteers, so they remain unrecorded. While Madrid is a major terrestrial network hub for transatlantic internet traffic, it contains no submarine cable landing station. All undersea cables land on Spain’s coastline and connect inland via terrestrial fibre to Madrid’s data centre clusters. Data Center Map documents 84 operational data centres across Madrid, a much larger count than the building=data_center entries found in OSM. Also, if I re-run this query on a different Overpass mirror server, the total feature count may differ slightly, because mirrors refresh their OSM database snapshots at different intervals. This is a form of data snapshot inconsistency, comparable to the Week7 Atlas mismatch between webpage view and downloaded dataset.
+    </p>
+
+    <h2>What this does not show</h2>
+    <div class="limits">
+      <p>
+    I use OSM tagged telecom and building=data_center records to represent Madrid’s real-world telecom and data centre infrastructure. This proxy may fail because OSM contributors rely on publicly visible or aerial-view features. Underground fibre and locked private telecom buildings are hard to detect and are systematically under-recorded in the database. 
+      <p>
+        <strong>AI use:</strong> AI-assisted for grammar refinement. I verified all spatial statements and logic manually.
+     </p>
+    </div>
+
+    <a class="back" href="../index.html#journal">← Back to all entries</a>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap wrap-narrow">
+    <p>Xizhou Huang · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
