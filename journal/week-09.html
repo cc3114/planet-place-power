@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 09 · Xizhou Huang</title>
+
+<!-- Note the ../ — this page is inside the journal folder, so it has to
+     look one level up to find the stylesheet. -->
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Xizhou Huang</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../index.html#journal">Journal</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="entry">
+  <div class="wrap wrap-narrow">
+
+    <p class="kicker">Week 09 · November 2026</p>
+
+    <!-- EDIT THIS: a title that says what you found, not what you did.
+         "The blocks that were built after the creek was filled" beats
+         "Week 1 journal entry". -->
+    <h1>From maps to a story map</h1>
+
+    <!-- ============================================================
+         The six parts. Every entry in this course has all six.
+         Do not delete a heading — if a section is thin, that is
+       
+         information too.
+         ============================================================ -->
+
+    <h2>The question</h2>
+    <p>
+    Madrid's recent heatwaves are not a single thermal event but a layered pattern where climate history, green-cover proxies, and invisible infrastructure shape who feels the heat; the distribution of thermal exposure changes at the boundary of each measurement unit; and the relationship between any two maps in this sequence quietly assumes they share a unit even when they do not.
+    </p>
+
+    <h2>The data</h2>
+    <p>
+Week 2 · Climate — KEPT as Map 1
+Unit mapped: Discrete GHCN-D station point (SPE00120287), monthly average temperature and precipitation
+Source: NOAA NCEI GHCN-Daily v3.24, via Esri Living Atlas
+Why kept: Establishes Mediterranean hot-dry baseline; foundational to why Madrid cannot cool down.
+Week 3 · Terrain — set aside
+Unit mapped: 1 m DTM cells; slope degrees; hillshade
+Source: Spain_MadridCity_DTM1m
+Why set aside: Topography does not directly change the heat-exposure argument.
+Week 4 · Surface heat — set aside
+Unit mapped: No map produced; text-only reasoning
+Source: N/A
+Why set aside: No raster was generated; text stays in journal as a reminder for future LST work.
+Week 5 · Water — set aside
+Unit mapped: 790 km² watershed polygon; Aqueduct annual and monthly sub-basins
+Source: MERIT-Hydro + WRI Aqueduct 4.0
+Why set aside: Redirects to drinking water, not thermal exposure.
+Week 6 · Vegetation — KEPT as Map 2
+Unit mapped: 30 m Landsat pixels; NDVI from Band 4 + Band 5; three sampled parks
+Source: Esri Living Atlas, Landsat 9, 13 July 2026
+Why kept: Breaks "green = cool" assumption; Madrid Río irrigated lawn scores high while Casa de Campo scores low.
+Week 7 · Trade — set aside
+Unit mapped: Natural Earth country polygons, choropleth
+Source: Atlas of Economic Complexity
+Why set aside: National trade scale breaks Madrid place scale.
+Week 8 · Infrastructure — KEPT as Map 3
+Unit mapped: OSM bbox features (power=tower, power=substation)
+Source: OpenStreetMap via Overpass Turbo, ODbL
+Why kept: Shows visible power grid vs. invisible telecom; survival during heatwaves is infrastructural.
+
+    </p>
+    <p>
+      <em></em>
+    </p>
+     
+    <h2>The method</h2>
+    <p>
+Subtraction:​ From seven audited entries I kept three maps (Weeks 2, 6, 8) and set aside four (Weeks 3, 4, 5, 7). The kept maps answer "why Madrid cannot cool down" from three different measurement boundaries. The set-aside maps remain in the journal as a record of what was explored but excluded from the argument.
+Order:​ The sequence is not chronological. It runs: climate baseline (Week 2) → vegetation proxy (Week 6) → infrastructure visibility (Week 8). Each step moves from natural systems to human systems and from coarse to fine to crowdsourced units.
+Unit-change sentences:
+Between Map 1 and Map 2: Week 2 uses discrete station points filtered by station ID; Week 6 re-grids the same city to 30-meter pixels. The same "Madrid summer" becomes a point sample in step one and a surface of photosynthetic readings in step two.
+Between Map 2 and Map 3: Week 6 uses natural surface pixels; Week 8 uses crowdsourced point and line features within an administrative bounding box. "Green space" becomes "mapped asset" — and underground systems disappear entirely.
+
+    </p>
+
+    <!-- ============================================================
+         YOUR EVIDENCE
+
+         WEEK 1: a screenshot from the Site Scanner. Upload it into this
+         journal folder (Add file → Upload files) and change the src
+         below to your filename, for example src="scanner-01.png".
+
+         FROM WEEK 2, once ArcGIS Online is live: publish your web map,
+         choose Share → Embed, delete the <img> line, remove the <!-- and
+         --> 
+    <h2>The evidence</h2> 
+    Published StoryMap:​ https://arcg.is/1bP4Hi4
+The evidence this week is a sequence of three embedded web maps, not a single map. Each block in the StoryMap links to one ArcGIS Online web map (Weeks 2, 6, 8).
+
+  
+
+    <h2>What I found</h2>
+    <p>
+  Read in order, these three maps reveal something no single map can show on its own. Madrid's climate baseline establishes that hot dry summers are structurally built into the city's Mediterranean position, but that baseline stops sixteen years ago before the most extreme recent events that motivated this investigation. The NDVI layer then breaks the assumption that "green equals cool" by showing how managed irrigation produces high photosynthetic index values where soil is too shallow to provide real thermal refuge, while semi-natural woodland drops in index exactly when people need shade most. The infrastructure map adds a third boundary. The power grid that keeps Madrid alive during heatwaves is partially mapped and partially inferred, and the same crowdsourced system that captures transmission towers reliably fails on the underground fibre and telecom assets that actually coordinate emergency response. The pattern that emerges across all three is a relational outcome of climate history, canopy depth, and infrastructural visibility.
+    </p>
+
+    <h2>What this does not show</h2>
+    <div class="limits">
+      <p>
+    This Story Map has clear limits that a reader should keep in view. The climate data stops at 2010 and cannot directly represent the 2022–2025 heatwave years that motivated this investigation; a refreshed baseline is needed before any claim about recent extremes can be grounded in station measurements. NDVI measures photosynthetic radiation, not thermal comfort. High values from irrigation do not equal deep shade, and low values from seasonal drying do not mean a space offers no cooling value, so the vegetation map remains a proxy for ecological function rather than a measure of what a person feels on the ground. The OpenStreetMap infrastructure layer excludes underground telecom and private data-centre buildings, making it a visibility map rather than a complete inventory; mirror-server snapshot inconsistency also means feature counts vary slightly between database refreshes. No surface-temperature raster was produced this semester, as in my Week 4's journal entry, I argue that dense historic blocks might be cooler than exposed peripheral fabric, but the claim was not mapped, and a dedicated land surface temperature layer would strengthen this argument in a later revision. Finally, this Story Map references existing web maps by pointer rather than by copy, which means its stability depends entirely on the three underlying maps staying publicly shared; if any source map is later unshared or deleted, the corresponding block will go silent without warning inside the StoryMaps interface.
+      <p>
+        <strong>AI use:</strong> AI-assisted for grammar refinement. I verified all spatial statements and logic manually.
+     </p>
+    </div>
+
+    <a class="back" href="../index.html#journal">← Back to all entries</a>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap wrap-narrow">
+    <p>Xizhou Huang · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
